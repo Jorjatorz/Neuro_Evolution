@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <list>
 #include <unordered_set>
-#include "FLog.h"
+//#include "FLog.h"
 
 float NEATNN::weight_mutation_probability = 0.5;
 float NEATNN::add_connection_probability = 0.25;
@@ -135,12 +135,12 @@ NEATNN& NEATNN::operator=(const NEATNN & other)
 	return *this;
 }
 
-void NEATNN::execute(std::vector<float> input)
+void NEATNN::execute(const std::vector<double> input) const
 {
 	// Check that input is correct and set the value to the input neurons
 	if (input.size() != (input_nodes_list.size() - 1))
 	{
-		FLog(FLog::FAILURE, "Input vector doesn't match number of input nodes");
+		//FLog(FLog::FAILURE, "Input vector doesn't match number of input nodes");
 		return;
 	}
 
@@ -487,7 +487,7 @@ NEATNN::NodeConnection* NEATNN::add_connection(Node* in, Node* out, float weight
 	{
 		if (connection->in == out)
 		{
-			FLog(FLog::FAILURE, "Connection already exists in the other way");
+			//FLog(FLog::FAILURE, "Connection already exists in the other way");
 			return NULL;
 		}
 	}

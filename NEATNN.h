@@ -22,10 +22,10 @@ public:
 	};
 
 	// Function that propagates the input and calculates the activation value of all nodes
-	void execute(std::vector<float> input);
+	void execute(const std::vector<double> input) const;
 
 	// Returns the output of the NN given an activation function
-	std::vector<float> getOutput(const Activation_function a_func);
+	std::vector<float> getOutput(const Activation_function a_func = RELU);
 
 	// Genetic operators to compute on the NN
 	NEATNN crossOver(const NEATNN& parent2);
